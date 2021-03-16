@@ -6,11 +6,11 @@ This is a Vue2 component made to test dev skills.
 
 ## Must have:
 
-- Make a new project using Vue CLI (Vue v2);
-- Make use of Tailwind, an utility class framework;
-- Make use of Font Awesome 5 (drag indicator can be grip-vertical);
+- Make a new project using **Vue CLI** (Vue v2);
+- Make use of **Tailwind**, an utility class framework;
+- Make use of **Font Awesome 5** (drag indicator can be grip-vertical);
 - Create a new component called `ChannelManager.vue` and (reusable) child
-  components, where you think is appropriate with the Atomic Design Principles in
+  components, where you think is appropriate with **the Atomic Design Principles** in
   mind.
 - Try to follow the design as much as possible;
 - The order of the list can be changed by dragging the drag indicator;
@@ -26,8 +26,8 @@ This is a Vue2 component made to test dev skills.
 
 ## Could have:
 
-- Data is stored using VueX (otherwise managed in data function is fine as well)
-- (Some) components are unit tested via a framework as Cypress
+- Data is stored using **VueX** (otherwise managed in data function is fine as well)
+- (Some) components are unit tested via a framework as **Cypress**
 
 ## Additional notes:
 

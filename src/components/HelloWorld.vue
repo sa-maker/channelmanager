@@ -1,58 +1,68 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <h1 class="py-5 md:font-black text-4xl">
+      Tailwind working
+    </h1>
+    <button
+      class="rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-red-500 hover:bg-red-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md"
+      @click="handelTextAdd('t1')"
+    >
+      Click me!
+    </button>
+    <!-- <br />
+    <button class="button">
+      Or maybe click ME!
+    </button> -->
+    <br />
+    <h1 class="py-5 md:font-black text-4xl">Font Awesome working</h1>
+    <font-awesome-icon icon="random" /><br />
+    <font-awesome-icon icon="grip-vertical" />
+    <font-awesome-icon :icon="['fab', 'whatsapp']" />
+
+    <br /><br />
+    <h1 class="py-5 md:font-black text-4xl">Vuex working</h1>
+    <div v-for="(item, index) in channel_list" :key="index">
+      <font-awesome-icon :icon="item.icon" /> {{ item.text }} {{ item.icon }}
+    </div>
+    <br />
+    {{ channel_list }}
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  computed: {
+    ...mapGetters(['channel_list', 'default_icon_list'])
+  },
+  methods: {
+    handelTextAdd(new_name) {
+      this.$store.commit('channelmanager/ADD_TO_CHANNEL_LIST', {
+        pos: 1,
+        text: new_name,
+        icon: this.generateIcon()
+      })
+    },
+    generateIcon() {
+      return this.default_icon_list[
+        Math.floor(Math.random() * this.default_icon_list.length)
+      ]
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+/* h1 {
+  @apply md:py-5 md:font-black md:text-8xl md:text-lg xl:text-base;
+} */
+/* .button {
+  @apply rounded-lg bg-red-600 px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 hover:bg-red-400 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md;
+} */
 </style>
