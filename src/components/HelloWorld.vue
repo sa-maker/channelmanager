@@ -26,6 +26,9 @@
     </div>
     <br />
     {{ channel_list }}
+    <br />
+    <h1 class="py-5 md:font-black text-4xl">Cypress working</h1>
+    <h1>{{ msg }}</h1>
   </div>
 </template>
 

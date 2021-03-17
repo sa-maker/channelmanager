@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test:components": "vue-cli-service test:components",
+    "test:open": "cypress open",
+    "test": "cypress run"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
@@ -17,6 +20,8 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@cypress/vue": "^2.1.1",
+    "@cypress/webpack-preprocessor": "^5.6.0",
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@tailwindcss/postcss7-compat": "^2.0.3",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -24,10 +29,14 @@
     "@vue/cli-service": "~4.5.0",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
+    "cypress": "^6.7.1",
     "eslint": "^6.7.2",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-vue": "^6.2.2",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
+    "vue-cli-plugin-cypress-experimental": "~1.2.0",
+    "vue-loader": "^14.2.4",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
