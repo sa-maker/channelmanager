@@ -26,19 +26,57 @@
     </div>
     <br />
     {{ channel_list }}
+
+    <br />
+    <br />
+    <h1 class="py-5 md:font-black text-4xl">Draggable working</h1>
+    <draggable
+      v-model="myList"
+      group="people"
+      class="w-max"
+      @start="drag = true"
+      @end="drag = false"
+    >
+      <div
+        v-for="element in myList"
+        :key="element.id"
+        class="py-3 my-2 rounded-lg border-gray-500 border-solid border-2 shadow"
+      >
+        <font-awesome-icon :icon="element.icon" class="mx-3" />{{
+          element.text
+        }}
+        <font-awesome-icon
+          icon="grip-vertical"
+          class=" mx-3 float-right cursor-pointer"
+        />
+      </div>
+    </draggable>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import draggable from 'vuedraggable'
 
 export default {
   name: 'HelloWorld',
+  components: {
+    draggable
+  },
   props: {
     msg: String
   },
   computed: {
-    ...mapGetters(['channel_list', 'default_icon_list'])
+    ...mapGetters(['channel_list', 'default_icon_list']),
+
+    myList: {
+      get() {
+        return this.channel_list
+      },
+      set(value) {
+        this.$store.commit('channelmanager/UPDATE_CHANNEL_LIST', value)
+      }
+    }
   },
   methods: {
     handelTextAdd(new_name) {

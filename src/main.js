@@ -1,6 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import VueTailwind from 'vue-tailwind'
+
+import { TModal } from 'vue-tailwind/dist/components'
+const settings = {
+  't-modal': {
+    component: TModal
+  }
+}
+Vue.use(VueTailwind, settings)
+
+
 import store from './store'
 
 import '@/assets/styles/index.css'
@@ -29,6 +40,8 @@ library.add(faTrello)
 library.add(fas)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+
 
 Vue.config.productionTip = false
 
