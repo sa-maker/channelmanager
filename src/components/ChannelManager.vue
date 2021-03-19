@@ -17,12 +17,12 @@
           icon="search"
           alt="Drag the channel up or don to change the order"
           title="Drag the channel up or don to change the order"
-          class="mx-3  cursor-pointer text-gray-400"
+          class="mx-2 cursor-pointer text-gray-400"
         />
         <input
           v-model="addField"
           placeholder="Add channels"
-          class="w-4/5"
+          class="w-4/5 px-2"
           @keyup.enter="handelTextAdd"
         />
       </div>
@@ -91,7 +91,6 @@ export default {
     // }
   },
   beforeMount() {
-    console.log('beforeMount')
     this.myList = JSON.parse(JSON.stringify(this.channel_list))
   },
   methods: {
