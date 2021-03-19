@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
-    <h1 class="py-2 px-3 font-bold text-gray-600 text-lg">Channel Manager</h1>
+  <div class="sans">
+    <h1 class="py-2 px-3 font-bold text-gray-600 text-lg">
+      Channel Manager
+    </h1>
     <draggable
       v-model="myList"
       class="w-full px-3"
@@ -51,7 +53,7 @@
       >
         <button
           @click="handelCancel()"
-          class="mx-4 py-1 px-8 border-gray-200 rounded-full border-solid border-2"
+          class="mx-4 py-1 px-8 border-gray-200 hover:bg-gray-100 rounded-full border-solid border-2"
         >
           Cancel
         </button>
@@ -84,10 +86,13 @@ export default {
   },
   computed: {
     ...mapGetters(['channel_list', 'default_icon_list'])
+    // myList:{
+    //   get(){}
+    // }
   },
   beforeMount() {
     console.log('beforeMount')
-    // this.myList = this.channel_list
+    this.myList = JSON.parse(JSON.stringify(this.channel_list))
   },
   methods: {
     handelTextAdd() {
@@ -107,7 +112,6 @@ export default {
       ]
     },
     handelApply() {
-      console.log('handelApply')
       this.$store.commit('channelmanager/UPDATE_CHANNEL_LIST', this.myList)
       this.$emit('closeModal')
     },
