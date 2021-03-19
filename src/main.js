@@ -1,6 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import VueTailwind from 'vue-tailwind'
+
+import { TModal } from 'vue-tailwind/dist/components'
+const settings = {
+  't-modal': {
+    component: TModal
+  }
+}
+Vue.use(VueTailwind, settings)
+
 import store from './store'
 
 import '@/assets/styles/index.css'
@@ -9,10 +19,9 @@ import '@/assets/styles/index.css'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-
+//TODO: find a better way to import these font icons
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 library.add(faWhatsapp)
-
 import { faAirbnb } from '@fortawesome/free-brands-svg-icons'
 library.add(faAirbnb)
 import { faAmazon } from '@fortawesome/free-brands-svg-icons'

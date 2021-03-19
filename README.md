@@ -4,6 +4,11 @@
 
 This is a Vue2 component made to test dev skills.
 
+## Demo
+
+You can view the demo here:
+https://sa-maker.github.io/channel_manager/index.html
+
 ## Must have:
 
 - Make a new project using **Vue CLI** (Vue v2);
