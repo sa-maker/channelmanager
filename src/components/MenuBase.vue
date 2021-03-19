@@ -20,6 +20,7 @@
     <t-modal ref="modal" @before-close="beforeClose"
       ><ChannelManager
         v-if="displayChannelManager"
+        :has-things-changed="hasThingsChanged"
         @closeModal="closeModal"
         @blockClose="blockClose"
     /></t-modal>

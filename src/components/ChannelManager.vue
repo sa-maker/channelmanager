@@ -3,12 +3,7 @@
     <h1 class="py-2 px-3 font-bold text-gray-600 text-lg">
       Channel Manager
     </h1>
-    <draggable
-      v-model="myList"
-      class="w-full px-3"
-      @start="drag = true"
-      @end="drag = false"
-    >
+    <draggable v-model="myList" class="w-full px-3" @update="handleUpdateOrder">
       <div
         slot="header"
         class="py-1 border-gray-200 rounded-full border-solid border-2 "
@@ -48,6 +43,7 @@
         >
       </div>
       <div
+        v-if="hasThingsChanged"
         slot="footer"
         class=" text-right border-t-2 border-gray-200 my-4 py-4"
       >
@@ -77,7 +73,9 @@ export default {
   components: {
     draggable
   },
-  props: {},
+  props: {
+    hasThingsChanged: { type: Boolean, default: false }
+  },
   data() {
     return {
       myList: [],
@@ -104,6 +102,9 @@ export default {
         this.myList.splice(index, 1)
         this.blockClose()
       }
+    },
+    handleUpdateOrder() {
+      this.blockClose()
     },
     generateIcon() {
       return this.default_icon_list[
