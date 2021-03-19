@@ -1,13 +1,18 @@
 <template>
   <div>
     <div class="font-semibold text-lg inline-block">Channels</div>
-    <font-awesome-icon
-      icon="ellipsis-h"
+    <a
+      id="open_channel_manager"
+      name="open_channel_manager"
       alt="Open the Channel Manager"
       title="Open the Channel Manager"
-      class="mx-3 cursor-pointer text-gray-400"
       @click="openChannelmanager()"
-    />
+    >
+      <font-awesome-icon
+        icon="ellipsis-h"
+        class="mx-3 cursor-pointer text-gray-400"
+      />
+    </a>
     <div v-for="(element, index) in channel_list" :key="index" class=" mx-2">
       <div class=" w-2 py-1 text-center text-gray-600 inline-block">
         <font-awesome-icon :icon="element.icon" class="text-ls " />

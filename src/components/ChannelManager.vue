@@ -16,6 +16,7 @@
         />
         <input
           v-model="addField"
+          id="add_channel_name"
           placeholder="Add channels"
           class="w-4/5 px-2"
           @keyup.enter="handelTextAdd"

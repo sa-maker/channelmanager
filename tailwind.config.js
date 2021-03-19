@@ -2,7 +2,7 @@ module.exports = {
   purge: [
     './public/**/*.html',
     './src/**/*.vue',
-    './tailwindUsedClasses.js'
+    './tailwindUsedClasses.txt'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {

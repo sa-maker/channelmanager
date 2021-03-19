@@ -13,8 +13,10 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "core-js": "^3.6.5",
+    "cypress": "^6.8.0",
     "vue": "^2.6.11",
     "vue-js-modal": "^2.0.0-rc.6",
+    "vue-tailwind": "^2.1.4",
     "vuedraggable": "^2.24.3",
     "vuex": "^3.6.2"
   },
@@ -29,7 +31,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
